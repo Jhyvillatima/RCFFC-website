@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>FFC WEBSITE</title>
+      
+      
+      <style>
+
+        @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+        }
+
+      .fade-in {
+        animation: fadeSlideIn 1.5s ease-out forwards;
+      }
+
+      .navbar.hide {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+      }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      html, body {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
+      }
+
+    .navbar {
+      background: rgba(4, 2, 26, 0.7);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-left: 40px;
+    
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 50px;
+      margin-right: 50px;
+    }
+
+    .nav-links a {
+      color: white;
+      font-family: arial;
+      text-decoration: none;
+
+    }
+    .nav-links a:hover {
+      color: #7ecbff;
+      
+    }
+    .nav-links a.active {
+    color: #1e89ec;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    p{
+        font-size: 15px;
+        font-family:arial;
+        color: white;
+    }
+
+    .gradient-text {
+        background: whitesmoke;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       text-shadow: none; 
+      }
+
+      .image-container {
+     text-align: center; 
+
+    }
+
+    .adjustable-image {
+      max-width: 75%; 
+    
+    height: auto;
+      border-radius: 15px;
+      transition: transform 0.3s ease; 
+      margin-left: 660px;
+      margin-top: 800px;
+    }
+
+
+    .button-container {
+      
+      text-align: left; 
+      margin-left: 60px;
+      padding-bottom: 800px;
+    
+
+    }
+
+    .button {
+      text-decoration: none;
+      padding: 20px 40px;
+      font-size: 17px;
+      background-color: rgb(241, 227, 42); 
+      color: rgb(0, 0, 0); 
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease; 
+    }
+
+    .button:hover {
+      background-color: rgba(30, 137, 236, 0.989); 
+      color: white; 
+      transform: scale(1.05); 
+    }
+
+    .button:active {
+      background-color: yellow; 
+      transform: scale(0.95); 
+    }
+          
+    #home {
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+
+    }
+
+    #about {
+      background: url('deepsea.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    #product {
+      background-size: cover;
+      background: url('bg1.png') no-repeat center center fixed;
+      color: rgb(255, 255, 255);
+      text-shadow: none;
+
+    }
+
+    #product {
+      background-size: cover;
+    }
+
+    #features {
+      background: url('bg2.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    #features {
+      background: url('bg2.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .feature-img {
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .feature-img:hover {
+      transform: scale(1.09);
+  
+    }
+
+    #video {
+      background: url('deepwater.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    #faqs {
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+      text-shadow: none;
+    }
+
+    #contacts {
+      background: url('seawate.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .footer {
+      background: #01082c;
+      color: white;
+      text-align: center;
+      font-size: 10px;
+      padding: 10px;
+    }
+
+    section::before {
+      content: "";
+      display: block;
+      height: 60px;
+      margin-top: -60px;
+      visibility: hidden;
+    }
+
+     .team-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-top: 40px;
+    }
+    .team-member-box {
+      text-align: center;
+      background: rgba(27, 53, 107, 0.85);
+      border-radius: 16px;
+      padding: 20px 10px 10px 8px;
+      width: 230px;
+      transition: box-shadow 0.3s;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(30, 136, 236, 0.244);
+      min-height: 230px;
+    }
+    .team-member-box img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .team-member-name {
+      color: white;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .team-member-role {
+      font-size: 13px;
+      color: #b6e0ff;
+    }
+    .team-member-details {
+      text-align: center;
+      display: none;
+      color: #fff;
+      background: rgba(30,137,236,0.25);
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 12px;
+      font-size: 12px;
+      text-align: left;
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      box-shadow: 0 2px 5px rgba(30,137,236,0.15);
+    }
+    .team-member-box:hover .team-member-details {
+      display: block;
+    }
+    .team-member-box:hover img {
+    transform: scale(1.12);
+    box-shadow: 0 0 24px 8px rgba(255, 230, 0, 0.7), 0 2px 8px rgba(255, 230, 0, 0.25);
+    }
+
+    #custom-section {
+      background: #01082c;      
+      height: 10px;       
+      padding: 30px 0;          
+    }
+
+  </style>
+
+  </head>
+  <body>
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="ctu.png" alt="Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#product">Product</a>
+      <a href="#features">Features</a>
+      <a href="#video">Video</a>
+      <a href="faqs.html">FAQS</a>
+      <a href="contact.html">Contacts</a>
+    </div>
+    </div>
+
+ 
+    <section id="home">
+      <div class="fade-in" 
+      style="
+      position: absolute; 
+      top: 100px; left: 60px; 
+      color: rgb(58, 212, 255);">
+        <h1 class="gradient-text" 
+        style="font-size: 50px; font-family: Arial Black; margin-top: 100px;">
+          REMOTE CONTROLLED <br> FISH FARM CLEANER
+        </h1>
+        <br>
+        <p style="font-size: 16px; color: rgb(255, 255, 255); max-width: 800px; margin-top: 2px; line-height: 1.8; text-align: justify; ">
+        Keep your pond pristine with our remote controlled surface-cleaning device — engineered <br>
+        specifically for stagnant or low-flow water bodies.
+        This eco-friendly system gently skims <br> floating debris like leaves,
+        plastic, and organic waste using a stable dual-pontoon design <br> and an efficient net collection system.
+        </p>
+    
+    
+
+
+    </div>
+
+    <div class="fade-in" style="text-align: right; width: 100%; position: absolute; ">
+    <div class="image-container">
+      <img src="iso.png" alt="Fish Farm Cleaner ISO Certification" class="adjustable-image" />
+    </div>
+
+    <div class="button-container">
+      <a href="#about" style="text-decoration: none; position:absolute absolute;">
+        <button class="button">
+          <strong>Learn More</strong>
+        </button>
+      </a>
+    </div>
+  </div>
+  </section>
+
+
+  <section id="about">
+  <div style="text-align: center; font-size: 40px; padding: 10px 10px 10px 10px; margin-top: -60px; font-family: Arial black; ">
+    <h1>INTRODUCTION</h1>
+    <br>
+    <p style="
+    font-size: 18px; 
+    font-family: Arial ; 
+    max-width: 800px; 
+    margin:  auto;
+    line-height: 1.8;
+    text-align: center;">
+      The <strong>Remote Controlled fish farm cleaner</strong> is an innovative solution designed to enhance the sustainability of aquaculture environments. 
+      It efficiently collects waste and debris in fish farms, helping maintain water quality and improve aquatic health. 
+      This system aims to reduce manual labor while promoting eco-friendly practices in fish farming operations.
+    </p>
+
+    <br>
+
+    <h3>The Team</h3>
+
+    <div class="team-container">
+        <div class="team-member-box">
+          <img src="topee.png" alt="Team Member 1">
+          <div class="team-member-name">John Christopher Malinao<br><span class="team-member-role">Researcher</span></div>
+          <div class="team-member-details"style="text-align: center;">
+             <strong style="font-size: 10px;">CONTACT INFO:</strong><br><br>malinaojohnc19@gmail.com<br>09202158717
+          </div>
+        </div>
+        <div class="team-member-box">
+          <img src="lime.png" alt="Team Member 2">
+          <div class="team-member-name">Limarie Lascona<br><span class="team-member-role">CAD Designer</span></div>
+          <div class="team-member-details"style="text-align: center;">
+            <strong style="font-size: 10px;">CONTACT INFO:</strong><br><br>limarielascona@gmail.com<br>09014985075
+          </div>
+        </div>
+        <div class="team-member-box">
+          <img src="jhyy.jpg" alt="Team Member 3">
+          <div class="team-member-name">Jhenneth Villatima<br><span class="team-member-role">Team Leader</span></div>
+          <div class="team-member-details"style="text-align: center;">
+            <strong style="font-size: 10px;">CONTACT INFO:</strong><br><br>jhyvillatima16@gmail.com<br>09971637555
+          </div>
+        </div>
+        <div class="team-member-box">
+          <img src="cyy.png" alt="Team Member 4">
+          <div class="team-member-name">Cylvan Esmero<br><span class="team-member-role">Researcher</span></div>
+          <div class="team-member-details"style="text-align: center;">
+             <strong style="font-size: 10px;">CONTACT INFO:</strong><br><br>vanixx158@gmail.com<br>09564265183
+          </div>
+        </div>
+        <div class="team-member-box">
+          <img src="terenss.png" alt="Team Member 5">
+          <div class="team-member-name">Terence Jay Maraasin<br><span class="team-member-role">Assemble Associate</span></div>
+          <div class="team-member-details"style="text-align: center;">
+             <strong style="font-size: 10px;">CONTACT INFO:</strong><br><br>terencejay434@gmail.com<br>0935980798
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="product">
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 80px; margin-top: -100px; padding-left: 100px;">
+    <div id="product-carousel" style="flex: 1; display: flex; justify-content: center; align-items: center; position: relative; max-width: 400px; min-height: 250px;">
+   <button id="prev-btn" style="position: absolute; left: -30px; top: 57%; transform: translateY(-50%); background: rgba(30,137,236,0.8); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; z-index: 2;">&#10094;</button>
+  <img src="actual front.jpeg" alt="Fish Farm Cleaner Product" class="carousel-img" style="max-width: 160%; height: auto; border-radius: 50px; margin-top: 50px; background-color:rgb(21, 21, 71); display: block; margin-left: 150px; transition: opacity 0.5s;">
+  <img src="actual back.jpeg" alt="Side View" class="carousel-img" style="max-width: 160%; height: auto; border-radius: 50px; margin-top: 50px; background-color:rgb(21, 21, 71); display: none;margin-left: 150px; transition: opacity 0.5s;">
+  <button id="next-btn" style="position: absolute; right: -170px; top: 57%; transform: translateY(-50%); background: rgba(30,137,236,0.8); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; z-index: 2;">&#10095;</button>
+  </div>
+    
+    
+    <div style="flex: 1; text-align: left; padding-left: 250px;">
+      <h2 style="font-size: 45px; color: rgb(255, 255, 255); font-family: Arial black;">PRODUCT OVERVIEW</h2>
+
+      <p style=" display: block; text-align: justify; font-size: 15px; color: rgb(255, 255, 255); max-width: 600px; margin-top: 50px; line-height:  1.8; text-align: justify;">
+        The Fish Farm Cleaner is a remotely operated solution engineered 
+        to maintain <br> cleanliness in aquaculture environments. 
+        With durable components and a user-friendly interface, 
+         it removes waste materials efficiently—supporting 
+         healthier aquatic life and reducing manual cleaning efforts. 
+
+         <br>
+         <br>
+
+       <strong style="font-size: 18px; font-style: arial black;">Key design elements include:</strong>
+        <br>
+        <br>
+         > Dual side pontoons for stability in flowing water.  <br>
+         > Rotating waste collection mechanism with a front-mounted rake for capturing floating debris.  <br>
+         > Rear conveyor system (mesh structure) designed to transport collected waste into onboard storage compartments.  <br>
+         >Lightweight and modular structure for easy deployment and maintenance.</p>
+        
+      </div>
+
+      </div>
+    </section>
+
+
+    <section id="product">
+    <div style="text-align: center; margin-top:  -200px; padding-bottom: 40px;">
+      <h2 style="font-size: 36px; color: white; margin-bottom: 30px;">EXPLODED VIEW</h2>
+      <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+        <img src="body.png" alt="Partner 1" style="max-width: 60%; height: auto; border-radius: 20px; object-fit: cover;margin-top: 20px;">
+      <p style="font-size: 15px; color: rgb(255, 255, 255); max-width: 1300px; margin-top: 20px; line-height:  1.9; display: block; text-align: justify; ">
+            The exploded view of the <strong>Remote Controlled Fish Farm Cleaner </strong>illustrates the arrangement of its mechanical and electrical components, 
+            providing a clear understanding of its construction and functionality. It highlights key parts such as the <strong>flooters</strong> for stability, 
+          <strong> the net</strong> for collecting debris, and the <strong>remote control mechanism</strong> for transporting waste. Additionally, the exploded view showcases the 
+            electrical system, including the <strong>Bluetooth module</strong>,<strong>propulsion motors</strong> , and <strong>battery placement</strong>, demonstrating how the cleaner operates remotely. 
+            Wires and circuit boards are positioned strategically to ensure seamless connectivity, allowing precise user control. This breakdown helps users 
+            visualize the assembly process, making maintenance and troubleshooting more accessible. By presenting the cleaner’s intricate design in a structured 
+            format, the exploded view reinforces its <strong>efficiency</strong>,<strong> durability</strong>, and <strong> ease of operation</strong>, ensuring effective aquaculture cleaning with minimal manual labor
+            while promoting sustainability and improved water quality.
+      
+      </div>
+    </div>
+      
+    </section>
+
+
+ <section id="features">
+  <div style="text-align: center; padding: 40px;">
+    <h2 style="font-size: 40px; color: white; font-family: Arial black; margin-top: 200px;">FEATURES</h2>
+    <br> 
+    <br>
+  <div style="margin-top:-40px;  justify-content: center; align-items: flex-end; gap: 10px; flex-wrap: wrap;">
+  <img src="Bluetooth (1).png" alt="Feature Image 1"  class="feature-img" style="width: 25%; height: auto; margin-left: -40px;">
+  <img src="fix.png" alt="Feature Image 2"  class="feature-img" style="width: 25%; height: auto; ">
+  <img src="user-friendly.png" alt="Feature Image 3"  class="feature-img" style="width: 25%; height: auto; ">
+  <img src="eco-friendly.png" alt="Feature Image 4"  class="feature-img" style="width: 25%; height: auto; margin-right: -40px;">
+</div>
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 44px; flex-wrap: wrap;line-height:  1.5; margin-top: -70px;">
+  <div style=" border-radius: 10px; padding: 15px; width: 300px; text-align: center;margin-left: -40px;">
+    <p style="color: white; font-size: 15px; margin-top: 10px;">
+      <span style="font-size:18px; font-weight: bold;">REMOTE CONTROLLED VIA BLUETOOTH</span><br><br>
+      <span style="font-size:15px; display: block; text-align: center;">TThe Remote Controlled Fish Farm Cleaner simplifies aquaculture maintenance with
+         Bluetooth-enabled navigation. Users can remotely operate the device, reducing manual cleaning efforts. 
+         With seamless connectivity, it efficiently collects floating debris. This hands-free system enhances convenience,
+          minimizes labor demands, and improves water quality in land-based aquaculture environments.</span>
+    </p>
+  </div>
+  <div style=" border-radius: 12px; padding: 15px; width: 300px; text-align: center;line-height:  1.5; ">
+    <p style="color: white; font-size: 15px; margin-top: 10px;">
+      <span style="font-size:18px; font-weight: bold;">EASY TO ASSEMBLE AND MAINTAN</span><br><br>
+      <span style="font-size:15px; display: block; text-align: center; ">The Remote Controlled Fish Farm Cleaner features a lightweight, modular design 
+         for easy assembly and maintenance. Its user-friendly structure allows quick setup and hassle-free upkeep. With durable components, the cleaner remains 
+         efficient over time, ensuring reliable performance while reducing labor demands in land-based aquaculture environments.</span>
+    </p>
+  </div>
+  <div style="border-radius: 10px; padding: 15px; width: 300px; text-align: center; line-height:  1.5;">
+    <p style="color: white; font-size: 15px; margin-top: 10px;">
+      <span style="font-size:18px; font-weight: bold;">USER-FRIENDLY <br> DEVICE</span><br><br>
+      <span style="font-size:15px; display: block; text-align: center; ">The Remote Controlled Fish Farm Cleaner is designed with a user-friendly interface, 
+         making operation simple and accessible. Its intuitive controls allow users to navigate the device effortlessly, ensuring efficient debris collection with minimal effort.
+         This streamlined functionality enhances convenience, reduces manual labor, and promotes effective maintenance in land-based aquaculture.</span>
+    </p>
+  </div>
+  <div style="border-radius: 10px; padding: 15px; width: 300px; text-align: center; line-height:  1.5;margin-right: -40px; ">
+    <p style="color: white; font-size: 15px; margin-top: 10px;">
+      <span style="font-size:18px; font-weight: bold;">MADE FROM ECO-FRIENDLY MATERIALS</span><br><br>
+      <span style="font-size:15px;  display: block; text-align: center;">The Remote Controlled Fish Farm Cleaner is built using eco-friendly materials, ensuring 
+        sustainable aquaculture maintenance. Its non-toxic, durable components minimize environmental impact while maintaining efficiency in debris collection. By reducing
+         plastic waste and promoting responsible material use, this cleaner supports cleaner water and healthier aquatic ecosystems in land-based aquaculture.</span>
+    </p>
+  </div>
+</div>
+</section>
+
+<section id="features">
+  <div style="text-align: center; padding: 30px;">
+    <h2 style="font-size: 40px; color: white; font-family: Arial; margin-top: -300; margin-bottom: -40px; ">PRODUCT MULTI-VIEWS</h2>
+    <br>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; ">
+    <div style="text-align: center;">
+      <img src="back.png" alt="Feature Image 1" 
+           style="max-width: 32%; height: auto; width: 50%;margin-bottom: -50px;">
+      <img src="front iso.png" alt="Feature Image 1" 
+           style="max-width: 30%; height: auto; width: 50%;margin-bottom: -50px;">
+      <img src="back iso.png" alt="Feature Image 1" 
+           style="max-width: 30%; height: auto; width: 50%;margin-bottom: -50px;"> 
+       <img src="backk.png" alt="Feature Image 1" 
+           style="max-width: 30%; height: auto; width: 50%;margin-bottom: -100px;">
+       <img src="side.png" alt="Feature Image 1" 
+           style="max-width: 30%; height: auto; width: 50%; margin-bottom: -100px;"> 
+    </div>
+</section>
+
+
+ <section id="video">
+  <div style="text-align: center; padding: 40px;">
+    <h2 style="font-size: 40px; color: white; font-family: Arial;">Project Simulation Video</h2>
+    <br>
+    <video autoplay muted loop controls style="max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.6);">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<section id="custom-section">
+</section>
+
+  <div class="footer">
+    © 2025 Cebu Technological University. BSGD 3-B. FISH FARM CLEANER WITH REMOTE CONTROL SYSTEM. All Rights Received.
+  </div>
+
+
+
+  <script>
+  
+  const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+  let currentSection = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 80;
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').slice(1) === currentSection) {
+      link.classList.add('active');
+    }
+  });
+});
+  let prevScrollPos = window.pageYOffset;
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', () => {
+    const currentScrollPos = window.pageYOffset;
+    if (prevScrollPos > currentScrollPos) {
+      navbar.classList.remove('hide');
+    } else {
+      navbar.classList.add('hide');
+    }
+    prevScrollPos = currentScrollPos;
+  });
+  const imgs = document.querySelectorAll('#product-carousel .carousel-img');
+  let current = 0;
+
+  function showImg(idx) {
+    imgs.forEach((img, i) => {
+      img.style.display = (i === idx) ? 'block' : 'none';
+    });
+  }
+  showImg(current);
+
+  document.getElementById('prev-btn').onclick = function() {
+    current = (current - 1 + imgs.length) % imgs.length;
+    showImg(current);
+  };
+  document.getElementById('next-btn').onclick = function() {
+    current = (current + 1) % imgs.length;
+    showImg(current);
+  };
+</script>
+</body>
+</html>
